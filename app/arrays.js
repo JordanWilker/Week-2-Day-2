@@ -4,6 +4,11 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+    let rerange = [...arr]
+    rerange.push(rerange[0]);
+    rerange.shift()
+    //console.log(rerange);
+    return rerange
 }
 
 
@@ -16,6 +21,10 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+    let large = arr
+    
+    //console.log(large)
+    return Math.max(...large) 
 }
 
 
@@ -28,8 +37,23 @@ function largestNum(arr) {
 // output: [16, 8, 4, 28]
 
 function elemsTimesLength(arr) {
+    
+    let odd = arr.map(num=> num*arr.length)
+    //console.log(odd);
+    return odd
 }
 
+
+function myFunction(arr){
+    let out = []
+    // itterate with for loop
+        // elem
+    for (let i = 0; i < arr.length; i++) {
+        const num = arr[i];
+        out.push(num*arr.length)
+    }
+    return out 
+}
 
 // ------------------------------------------
 
@@ -63,7 +87,13 @@ let flights = [{
 
 function flightCost(destination, firstClass) {
     //***hint: use the find method***
-
+      let flight = flights.find(e => e.to==destination.toUpperCase()
+      )
+      //console.log(flight);
+      //console.log(destination);
+      if (firstClass == true){
+          return flight.prices.firstClass
+      }else { return flight.prices.standard }
 }
 
 
@@ -84,6 +114,14 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
 function findById(id) {
+   let Find = staff.find(e => e.id ==id)
+   //console.log(Find);
+   if (Find == undefined){
+       return { error: "No User with that id." }   
+   }else {
+       return Find
+    }
+
 
 }
 
@@ -111,4 +149,10 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
+    let Player = theBand.members.find(e=>e.name==name)
+    //console.log(Player);
+    if (Player.name==name){
+        return `${Player.name} is in the band and plays the ${Player.instrument}`
+    } else{return "he does not exist"}
+
 }
