@@ -44,7 +44,9 @@ function rangeDivisor(start, end, divisor) {
     for(n1=start; n1 <= end; n1++ ){
         if(n1%divisor==0){
             total = total+1;
-        }else {console.log("no");}
+        }else {
+            continue
+        }
     }
     return total
 }

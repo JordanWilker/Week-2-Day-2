@@ -21,10 +21,24 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
-    let large = arr
-    
-    //console.log(large)
-    return Math.max(...large) 
+    // Answer, this is me now working on strecth goal
+    //return Math.max(...arr) 
+
+    biggestNumber = 0
+    manyNumber=1
+    let newObj = {}
+    for( let i = 0; i<arr.length; i++ ){
+        let num = arr[i]
+        if(num>biggestNumber){
+            biggestNumber=num
+        }else if (num==biggestNumber){
+            manyNumber++
+        }else {continue}
+    }
+    if (manyNumber>1){
+        newObj[biggestNumber] =  manyNumber
+        return newObj
+    }else{return biggestNumber}
 }
 
 
